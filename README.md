@@ -6,6 +6,7 @@ properties.put(KEY_ID, new String[] { "1", "2", "3", "4" });
 properties.put(KEY_CATEGORY, new String[] { "clothes", "accessories", "accessories", "clothes" });
 properties.put(KEY_QUANTITY, new String[] { "2", "1", "1", "4" });
 properties.put(KEY_PRICE, new String[] { "9.99", "49.99", "39.99", "19.99" });
+
 properties.forEach((property, values) -> {
 	System.out.println(property + ":" + Arrays.toString(values));
 });
@@ -40,7 +41,7 @@ public interface Setter<T> {
     * Translates at runtime
     * Creates a lambda factory which returns instances
     * Convert the body of the lambda expression into a method
-        *Capturing
+        * Capturing
             * The lambda accesses variables defined outside its body
             * Prepend the arguments of the lambda expression with an additional argument for each of the captured variables
             * Explanation for "effectively final"
