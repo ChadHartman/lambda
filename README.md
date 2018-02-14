@@ -49,6 +49,8 @@ public interface Setter<T> {
             * the lambda doesn’t access any variables defined outside its body
 ## Performance
 
+### Anonymous Classes vs Lambda
+
 JIT Compiler
 
 > In practice, methods are not compiled the first time they are called. For each method, the JVM maintains an invocation count, which starts at a predefined compilation threshold value and is decremented every time the method is called. When the invocation count reaches zero, a just-in-time compilation for the method is triggered. Therefore, often-used methods are compiled soon after the JVM has started, and less-used methods are compiled much later, or not at all. The JIT compilation threshold helps the JVM start quickly and still have improved performance. The threshold value was selected to obtain an optimal balance between startup times and long-term performance.
@@ -58,6 +60,12 @@ JIT Compiler
 ![](findings/linkage_hot.png)
 
 ![](findings/linkage_cold.png)
+
+### Capture vs Non Capture Lambda
+
+![](findings/results_non_capture.png)
+
+![](findings/results_capture.png)
     
 ## Sources
 
