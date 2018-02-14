@@ -48,9 +48,19 @@ public interface Setter<T> {
         * Non-Capturing
             * the lambda doesn’t access any variables defined outside its body
 ## Performance
-* Linkage
+
+JIT Compiler
+
+> In practice, methods are not compiled the first time they are called. For each method, the JVM maintains an invocation count, which starts at a predefined compilation threshold value and is decremented every time the method is called. When the invocation count reaches zero, a just-in-time compilation for the method is triggered. Therefore, often-used methods are compiled soon after the JVM has started, and less-used methods are compiled much later, or not at all. The JIT compilation threshold helps the JVM start quickly and still have improved performance. The threshold value was selected to obtain an optimal balance between startup times and long-term performance.
+
+> The JIT compiler can compile a method at different optimization levels: cold, warm, hot, veryHot, or scorching. Higher optimization levels are expected to provide better performance, but they also have a higher compilation cost in terms of CPU and memory.
+
+![](findings/linkage_hot.png)
+
+![](findings/linkage_cold.png)
     
-## Sources: 
+## Sources
 
 * https://www.infoq.com/articles/Java-8-Lambdas-A-Peek-Under-the-Hood
+* https://www.ibm.com/support/knowledgecenter/en/SSYKE2_9.0.0/com.ibm.java.vm.9.0.doc/docs/jit_overview.html
 * http://www.oracle.com/technetwork/java/jvmls2013kuksen-2014088.pdf
