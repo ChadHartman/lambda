@@ -1,0 +1,1 @@
+javap -cp out/main/ -c com.example.product.LambdaStitcher
